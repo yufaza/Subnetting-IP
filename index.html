@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="control">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Hello</span>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s3">
+                        <span class="prefix">IP</span>
+                        <input type="number" name="oktet1" class="validate center" id="oktet1" min="0" max="255" value="0">
+                        <span class="helper-text" data-error="Masukkan nilai 0 - 255" data-success=""></span>
+                    </div>
+                    <div class="input-field col s3">
+                        <i class="prefix">.</i>
+                        <input type="number" name="oktet2" class="validate center" id="oktet2" min="0" max="255" value="0">
+                        <span class="helper-text" data-error="Masukkan nilai 0 - 255" data-success=""></span>
+                    </div>
+                    <div class="input-field col s3">
+                        <i class="prefix">.</i>
+                        <input type="number" name="oktet3" class="validate center" id="oktet3" min="0" max="255" value="0">
+                        <span class="helper-text" data-error="Masukkan nilai 0 - 255" data-success=""></span>
+                    </div>
+                    <div class="input-field col s3">
+                        <i class="prefix">.</i>
+                        <input type="number" name="oktet4" class="validate center" id="oktet4" min="0" max="255" value="0">
+                        <span class="helper-text" data-error="Masukkan nilai 0 - 255" data-success=""></span>
+                    </div>
+                </div>
+                <div class="row">    
+                    
+                    <div class="input-field col s8">
+                        <input type="text" id="ipaddress" class="validate center" required disabled value="0.0.0.0">
+                        <label for="oktet4">Alamat IPv4</label>
+                        <span class="helper-text center" id="ipaddresshelper"></span>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="prefix">/</i>
+                        <input type="number" disabled required name="subnet" id="subnet" class="validate center" min="0" max="30" value="24">
+                        <label for="oktet4">CIDR/Notasi</label>
+                        <span class="helper-text" data-error="Masukkan nilai 0 - 30" data-success=""></span>
+                    </div>
+                    <div class="input-field col s2 center-align">
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <button class="waves-effect waves-light btn" onclick="submit()">Submit</button>
+                    <button disabled class="waves-effect waves-light btn right" id="print" onclick="print(); M.toast({html: 'Generate Berhasil'})">Print</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="main-table">
+            <table class="striped">
+                <tbody>
+                    <tr>
+                        <th>Alamat IP</th>
+                        <td id="alamatip"></td>
+                    </tr>
+                    <tr>
+                        <th>Subnet Mask Biner</th>
+                        <td id="subnetmaskbiner"></td>
+                    </tr>
+                    <tr>
+                        <th>Subnet Mask Desimal</th>
+                        <td id="subnetmaskdesimal"></td>
+                    </tr>
+                    <tr>
+                        <th>Jumlah Blok</th>
+                        <td id="jblok"></td>
+                    </tr>
+                    <tr>
+                        <th>Jumlah Host/Blok</th>
+                        <td id="jhostperblok"></td>
+                    </tr>
+                    <tr>
+                        <th>Jumlah Host Valid/Blok</th>
+                        <td id="jhostvalidperblok"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row" id="blok-tables">
+
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+    </script>
+</body>
+</html>
